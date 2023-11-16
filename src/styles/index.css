@@ -11,6 +11,14 @@
     backdrop-filter: blur(6px); /* Adjust the blur level as needed */
   }  
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+  
+
 @layer components{
     .input{
         @apply w-full px-[1rem] py-[.5rem] text-[0.8rem] text-gray-700 border border-gray-300 bg-[#FAFAFA] rounded-sm ;

@@ -8,7 +8,7 @@ import store from './redux/store';
 import SignUp from './components/auth/signUp';
 import Login from './components/auth/login';
 import Home from './components/home/home';
-import Create from './components/home/createPost';
+import CommentSection from './components/home/commentSection';
 
 const router = createBrowserRouter([
   {
@@ -32,8 +32,8 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: '/create',
-        element: <Create />
+        path: '/comments',
+        element: <CommentSection />
       }
     ]
   }

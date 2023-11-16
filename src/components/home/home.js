@@ -28,7 +28,7 @@ export default function Home(){
     }));
 
     return(
-        <div className='md:grid '>
+        <div>
             <Header open={openCreate} />
             <div className='mt-[5rem] flex items-center justify-center gap-2 mb-[0.5rem]'>
                 <img className='w-[1.8rem] h-auto' src={userImg} alt='user' />

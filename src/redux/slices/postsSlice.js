@@ -9,7 +9,7 @@ const postsSlice = createSlice({
 
     reducers: {
         createPost: (state, action) => {
-            const newPost = action.payload;
+            const newPost = { id: state.posts.length + 1, ...action.payload };
             return {
                 ...state,
                 posts: [newPost, ...state.posts],
