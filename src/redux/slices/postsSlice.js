@@ -27,9 +27,26 @@ const postsSlice = createSlice({
               posts: updatedPosts,
             };
         },
+        toggleLike: (state, action) => {
+            const { postId, currentUsername } = action.payload;
+            const updatedPosts = state.posts.map((post) =>
+              post.postId === postId
+                ? {
+                    ...post,
+                    likes: post.likes.includes(currentUsername)
+                      ? post.likes.filter((username) => username !== currentUsername)
+                      : [...post.likes, currentUsername],
+                  }
+                : post
+            );
+            return {
+              ...state,
+              posts: updatedPosts,
+            };
+        }
     },
 });
 
-export const { createPost, addComment } = postsSlice.actions;
+export const { createPost, addComment, toggleLike } = postsSlice.actions;
 
 export default postsSlice.reducer;

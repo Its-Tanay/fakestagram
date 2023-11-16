@@ -5,7 +5,7 @@ import like from '../../assets/like.png'
 export default function Header({open}){
     return(
         <>
-            <header className='flex justify-between items-center px-[1rem] border-b-[0.5px] border-black fixed top-0 left-0 right-0 bg-white z-10'>
+            <header className=' md:hidden flex justify-between items-center px-[1rem] border-b-[0.5px] border-black fixed top-0 left-0 right-0 bg-white z-10'>
                 <div>
                     <img className='w-[8rem] h-auto' src={logoText} alt='logoText' />
                 </div>

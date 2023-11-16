@@ -4,9 +4,20 @@ import like from '../../assets/like.png'
 import comment from '../../assets/comment.png'
 import share from '../../assets/share.png'
 import save from '../../assets/save.png'
+import heart from '../../assets/heart.png'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleLike } from '../../redux/slices/postsSlice'
 
 export default function Post({postId, username, likes, caption, imageUrl}) {
+
+    const dispatch = useDispatch();
+
+    const currentUser = useSelector((state) => state.user.currentUser);
+
+    const handleLike = () => {
+        dispatch(toggleLike({postId: postId, currentUsername: currentUser.username}));
+    }
 
     return (
         <div className='w-full flex flex-col pb-[1rem]'>
@@ -19,14 +30,18 @@ export default function Post({postId, username, likes, caption, imageUrl}) {
             </div>
             <div className='flex justify-between gap-4 px-4 py-[0.8rem] items-center'>
                 <div className='flex gap-4'>
-                    <img className='w-[1.8rem] h-auto' src={like} alt='like' />
+                    {likes.includes(currentUser.username) ? (
+                        <img onClick={handleLike} className='w-[1.8rem] h-auto' src={heart} alt='like' />
+                    ) : (
+                        <img onClick={handleLike} className='w-[1.8rem] h-auto' src={like} alt='like' />
+                    )}
                 <Link to={`/home/${postId}`}><img className='w-[1.8rem] h-auto' src={comment} alt='comment' /></Link>
                     <img className='w-[1.8rem] h-auto' src={share} alt='share' />
                 </div>
                 <img className='w-[1.8rem] h-auto ml-[12rem]' src={save} alt='save' />
             </div>
             <div className='flex justify-start gap-4 px-4 items-center'>
-                <p className='text-lg font-semibold'>{likes} likes</p>
+                <p className='text-lg font-semibold'>{likes.length} likes</p>
             </div>
             <div className='flex justify-start px-4 items-center overflow-hidden whitespace-normal'>
                 <p className='text-lg font-semibold'>

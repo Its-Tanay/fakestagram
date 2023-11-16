@@ -5,7 +5,6 @@ import Header from './header'
 import cat from '../../assets/cat.png'
 import Toolbar from './toolbar'
 import Story from './story'
-import userImg from '../../assets/user.svg'
 import { useSelector } from 'react-redux'
 import Create from './createPost'
 
@@ -32,7 +31,7 @@ export default function Home(){
                 <img className='w-[1.8rem] h-auto' src={cat} alt='user' />
                 <p className='text-lg font-semibold'>{currentUser.username}</p>
             </div>
-            <div id="stories" className='flex p-2 overflow-x-auto'>
+            <div id="stories" className='flex p-2 overflow-x-auto border-b-[0.5px] border-black'>
                 <Story imgURL={cat} />
                 <Story imgURL={cat} />
                 <Story imgURL={cat} />
