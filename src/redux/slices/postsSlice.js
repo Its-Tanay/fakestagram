@@ -9,17 +9,17 @@ const postsSlice = createSlice({
 
     reducers: {
         createPost: (state, action) => {
-            const newPost = { id: state.posts.length + 1, ...action.payload };
+            const newPost = { postId: `${state.posts.length + 1}`, ...action.payload };
             return {
-                ...state,
-                posts: [newPost, ...state.posts],
+              ...state,
+              posts: [newPost, ...state.posts],
             };
-        },
+          },
         addComment: (state, action) => {
             const { postId, comment, currentUsername } = action.payload;
             const updatedPosts = state.posts.map((post) =>
               post.postId === postId
-                ? { ...post, comments: [{username: currentUsername, text: comment}, ...post.comments] }
+                ? { ...post, comments: [{username: currentUsername, text: comment}, ...post.comments || []]  }
                 : post
             );
             return {

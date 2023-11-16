@@ -11,7 +11,12 @@ const userSlice = createSlice({
             email: "",
         },
         error: null,
-        currentUser: null,
+        currentUser: {
+            username: "Tanay",
+            password: "123",
+            fullName: "Tanay",
+            email: "tanaytiw19@gmail.com",
+        },
         successMessage: null,
     },
 

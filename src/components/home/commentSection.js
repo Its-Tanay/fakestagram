@@ -10,17 +10,14 @@ import { addComment } from "../../redux/slices/postsSlice";
 export default function CommentSection() {
 
     const dispatch = useDispatch();
+
     const { postId } = useParams();
 
     const [newComment, setNewComment] = React.useState("");
 
-    const { currentUser } = useSelector((state) => ({
-        currentUser: state.user.currentUser,
-    }));
+    const currentUser = useSelector((state) => state.user.currentUser);
 
-    const { posts } = useSelector((state) => ({
-        posts: state.posts.posts,
-    }));
+    const posts = useSelector((state) => state.posts.posts);
 
     const post = posts.find((p) => p.postId === postId);
 
@@ -39,7 +36,7 @@ export default function CommentSection() {
             <Header />
                 <div className="flex flex-col justify-between mt-[4rem] pb-[4rem] min-h-full mx-auto w-full 480px:w-[480px] 480px:border-x-[0.5px] 480px:border-black">
                 <div>
-                    {post.comments.map((comment, index) => (
+                    {post?.comments?.map((comment, index) => (
                         <Comment key={index} username={comment.username} comment={comment.text} />
                     ))}
                 </div>
