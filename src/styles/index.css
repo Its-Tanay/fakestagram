@@ -7,6 +7,10 @@
     width: 100vw;
 }
 
+.bg-blur-md {
+    backdrop-filter: blur(6px); /* Adjust the blur level as needed */
+  }  
+
 @layer components{
     .input{
         @apply w-full px-[1rem] py-[.5rem] text-[0.8rem] text-gray-700 border border-gray-300 bg-[#FAFAFA] rounded-sm ;

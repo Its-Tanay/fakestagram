@@ -1,5 +1,5 @@
-import React from 'react'
 /* eslint-disable no-unused-vars */
+import React from 'react';
 import { useState, useEffect } from "react";
 import logoText from "../../assets/logoText.png";
 import downAppStore from "../../assets/down1.png";
@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 export default function Login () {
 
     const dispatch = useDispatch();
-    const {error} = useSelector((state) => state.user);
+    const {error, currentUser} = useSelector((state) => state.user);
 
     const [user, setUser] = useState({
         username: "",
@@ -25,9 +25,9 @@ export default function Login () {
         });
       };
     
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(loginUser(user));
+        await dispatch(loginUser(user));
       };
 
     return (
@@ -55,7 +55,22 @@ export default function Login () {
                     <div className="flex flex-col gap-4 mt-[0.8rem]">
                         <p className="text-xs text-center text-gray-500 w-full">People who use our service may have uploaded your contact information to Instagram. <span className="text-blue-800">Learn more</span></p>
                     </div>
-                <Link to="/home"><button type="submit" className="w-full px-[5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg">Login</button></Link>
+                {currentUser ? (
+                    <Link to="/home">
+                    <button
+                        className="w-full px-[5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg"
+                    >
+                        Take me to homepage
+                    </button>
+                    </Link>
+                ) : (
+                    <button
+                        type="submit"
+                        className="w-full px-[5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg"
+                    >
+                        Login
+                    </button>
+                )}
                 </form>
                 <div className="flex items-center justify-center w-full mt-[1rem]">
                     <div className="w-[30%] h-[1px] bg-gray-300"></div>

@@ -8,20 +8,31 @@ import Toolbar from './toolbar'
 import Story from './story'
 import userImg from '../../assets/user.svg'
 import { useSelector } from 'react-redux'
+import Create from './createPost'
 
 export default function Home(){
 
-    const {user, posts} = useSelector((state) => ({
-        user: state.user,
+    const [open, setOpen] = React.useState(false);
+
+    const openCreate = () => {
+        setOpen(true);
+    }
+
+    const closeCreate = () => {
+        setOpen(false);
+    }
+
+    const { posts, currentUser } = useSelector((state) => ({
+        currentUser: state.user.currentUser,
         posts: state.posts.posts,
     }));
 
     return(
         <div className='md:grid '>
-            <Header />
+            <Header open={openCreate} />
             <div className='mt-[5rem] flex items-center justify-center gap-2 mb-[0.5rem]'>
                 <img className='w-[1.8rem] h-auto' src={userImg} alt='user' />
-                <p className='text-lg font-semibold'>username</p>
+                <p className='text-lg font-semibold'>{currentUser.username}</p>
             </div>
             <div id="stories" className='flex p-2 border-b-[0.5px] border-black overflow-x-auto shadow-md'>
                 <Story imgURL={male} />
@@ -50,6 +61,7 @@ export default function Home(){
                 </div>
             </div>
             <Toolbar />
+            {open && <Create close={closeCreate} />}
         </div>
     )
 }

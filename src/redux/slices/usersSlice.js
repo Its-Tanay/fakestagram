@@ -10,9 +10,9 @@ const userSlice = createSlice({
             fullName: "",
             email: "",
         },
-    error: null,
-    currentUser: null,
-    successMessage: null,
+        error: null,
+        currentUser: null,
+        successMessage: null,
     },
 
     reducers:{
