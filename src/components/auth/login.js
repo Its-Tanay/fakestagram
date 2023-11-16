@@ -6,6 +6,7 @@ import downAppStore from "../../assets/down1.png";
 import downGooglePlay from "../../assets/down2.png";
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/slices/usersSlice';
+import { Link } from 'react-router-dom';
 
 export default function Login () {
 
@@ -54,7 +55,7 @@ export default function Login () {
                     <div className="flex flex-col gap-4 mt-[0.8rem]">
                         <p className="text-xs text-center text-gray-500 w-full">People who use our service may have uploaded your contact information to Instagram. <span className="text-blue-800">Learn more</span></p>
                     </div>
-                    <button type="submit" className="w-full px-[5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg">Login</button>
+                <Link to="/home"><button type="submit" className="w-full px-[5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg">Login</button></Link>
                 </form>
                 <div className="flex items-center justify-center w-full mt-[1rem]">
                     <div className="w-[30%] h-[1px] bg-gray-300"></div>

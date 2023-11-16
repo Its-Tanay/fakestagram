@@ -1,0 +1,33 @@
+[
+    {
+      "username": "user1",
+      "likes": "15",
+      "caption": "Beautiful sunset view. #nature #sunset",
+      "imageUrl": "https://i.ibb.co/ZLY03yL/pexels-simon-berger-2074746.jpg"
+    },
+    {
+      "username": "user2",
+      "likes": "20",
+      "caption": "Exploring new places. #travel",
+      "imageUrl": "https://i.ibb.co/pjTHCDw/pexels-z-z-4099988.jpg"
+    },
+    {
+      "username": "user3",
+      "likes": "10",
+      "caption": "Delicious homemade food. #foodie",
+      "imageUrl": "https://i.ibb.co/j66NLSB/pexels-lance-reis-15668503.jpg"
+    },
+    {
+      "username": "user4",
+      "likes": "25",
+      "caption": "Chilling at the beach. #beachlife",
+      "imageUrl": "https://i.ibb.co/ZBg1VPG/pexels-lucas-pezeta-8419915.jpg"
+    },
+    {
+      "username": "user5",
+      "likes": "18",
+      "caption": "Coding all day. #developer",
+      "imageUrl": "https://i.ibb.co/g4Y54vb/pexels-oswald-yaw-elsaboath-16622973.jpg"
+    }
+  ]
+  
