@@ -15,9 +15,21 @@ const postsSlice = createSlice({
                 posts: [newPost, ...state.posts],
             };
         },
+        addComment: (state, action) => {
+            const { postId, comment, currentUsername } = action.payload;
+            const updatedPosts = state.posts.map((post) =>
+              post.postId === postId
+                ? { ...post, comments: [{username: currentUsername, text: comment}, ...post.comments] }
+                : post
+            );
+            return {
+              ...state,
+              posts: updatedPosts,
+            };
+        },
     },
 });
 
-export const { createPost } = postsSlice.actions;
+export const { createPost, addComment } = postsSlice.actions;
 
 export default postsSlice.reducer;

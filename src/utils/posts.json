@@ -4,35 +4,52 @@
       "username": "user1",
       "likes": "15",
       "caption": "Beautiful sunset view. #nature #sunset",
-      "imageUrl": "https://i.ibb.co/ZLY03yL/pexels-simon-berger-2074746.jpg"
+      "imageUrl": "https://i.ibb.co/ZLY03yL/pexels-simon-berger-2074746.jpg",
+      "comments": [
+        { "username": "commenter1", "text": "Amazing photo!" },
+        { "username": "commenter2", "text": "Love the colors!" }
+      ]
     },
     {
       "postId": "4",
       "username": "user2",
       "likes": "20",
       "caption": "Exploring new places. #travel",
-      "imageUrl": "https://i.ibb.co/pjTHCDw/pexels-z-z-4099988.jpg"
+      "imageUrl": "https://i.ibb.co/pjTHCDw/pexels-z-z-4099988.jpg",
+      "comments": [
+        { "username": "commenter3", "text": "Wish I could be there!" }
+      ]
     },
     {
       "postId": "3",
       "username": "user3",
       "likes": "10",
       "caption": "Delicious homemade food. #foodie",
-      "imageUrl": "https://i.ibb.co/j66NLSB/pexels-lance-reis-15668503.jpg"
+      "imageUrl": "https://i.ibb.co/j66NLSB/pexels-lance-reis-15668503.jpg",
+      "comments": [
+        { "username": "commenter4", "text": "Yum! Recipe please?" },
+        { "username": "commenter5", "text": "Looks delicious!" }
+      ]
     },
     {
       "postId": "2",
       "username": "user4",
       "likes": "25",
       "caption": "Chilling at the beach. #beachlife",
-      "imageUrl": "https://i.ibb.co/ZBg1VPG/pexels-lucas-pezeta-8419915.jpg"
+      "imageUrl": "https://i.ibb.co/ZBg1VPG/pexels-lucas-pezeta-8419915.jpg",
+      "comments": [
+        { "username": "commenter6", "text": "So relaxing!" }
+      ]
     },
     {
       "postId": "1",
       "username": "user5",
       "likes": "18",
       "caption": "Coding all day. #developer",
-      "imageUrl": "https://i.ibb.co/g4Y54vb/pexels-oswald-yaw-elsaboath-16622973.jpg"
+      "imageUrl": "https://i.ibb.co/g4Y54vb/pexels-oswald-yaw-elsaboath-16622973.jpg",
+      "comments": [
+        { "username": "commenter7", "text": "Code master!" }
+      ]
     }
   ]
   

@@ -4,8 +4,9 @@ import like from '../../assets/like.png'
 import comment from '../../assets/comment.png'
 import share from '../../assets/share.png'
 import save from '../../assets/save.png'
+import { Link } from 'react-router-dom'
 
-export default function Post({username = "username", likes = "0", caption = "caption", imageUrl = "imageUrl"}) {
+export default function Post({id="postId", username = "username", likes = "0", caption = "caption", imageUrl = "imageUrl"}) {
 
     return (
         <div className='w-full flex flex-col border-b-[0.5px] border-black pb-[1rem]'>
@@ -19,7 +20,7 @@ export default function Post({username = "username", likes = "0", caption = "cap
             <div className='flex justify-between gap-4 px-4 py-[0.8rem] items-center'>
                 <div className='flex gap-4'>
                     <img className='w-[1.8rem] h-auto' src={like} alt='like' />
-                    <img className='w-[1.8rem] h-auto' src={comment} alt='comment' />
+                <Link to={`/home/${id}`}><img className='w-[1.8rem] h-auto' src={comment} alt='comment' /></Link>
                     <img className='w-[1.8rem] h-auto' src={share} alt='share' />
                 </div>
                 <img className='w-[1.8rem] h-auto ml-[12rem]' src={save} alt='save' />
@@ -34,7 +35,7 @@ export default function Post({username = "username", likes = "0", caption = "cap
                 </p>
             </div>
             <div className='flex justify-start px-4 items-center'>
-                <p className='text-lg text-gray-600 font-normal'>View all comments</p>
+            <Link to={`/home/${id}`}><p className='text-lg text-gray-600 font-normal'>View all comments</p></Link>  
             </div>
         </div>
     )

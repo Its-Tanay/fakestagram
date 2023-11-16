@@ -34,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/comments',
         element: <CommentSection />
+      },
+      {
+        path: '/home/:postId',
+        element: <CommentSection />
       }
     ]
   }

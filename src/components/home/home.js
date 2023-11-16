@@ -49,9 +49,9 @@ export default function Home(){
             </div>
             <div id="posts" className='mx-auto w-full 480px:w-[480px] 480px:border-x-[0.5px] 480px:border-black'>
                 <div className='flex flex-col items-center pb-[4rem]'>
-                {posts.map((post, index) => (
+                {posts.map((post) => (
                         <Post
-                            key={index} 
+                            id={post.postId} 
                             username={post.username}
                             likes={post.likes}
                             caption={post.caption}
