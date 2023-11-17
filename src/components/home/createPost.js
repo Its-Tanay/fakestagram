@@ -3,6 +3,7 @@ import Header from './header';
 import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost } from '../../redux/slices/postsSlice';
+import { Link } from 'react-router-dom';
 
 export default function Create({ close }) {
 
@@ -42,7 +43,6 @@ export default function Create({ close }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(createPost(postData));
-        window.location.href = '/home';
     };
 
     return (
@@ -58,9 +58,9 @@ export default function Create({ close }) {
                 {formData.imageUrl && <p className="text-sm text-gray-500">{formData.imageUrl.name}</p>}
                 <input ref={ref} className='invisible' type="file" name="imageUrl" placeholder="Image URL" onChange={handleFileData} />
                 <input type="text" name="caption" className="input" placeholder="Caption" onChange={handleInputChange} />
-                <button type="submit" className="w-full px-[5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg">
+            <button type="submit" className="w-full px-[5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg">
                 Create Post
-                </button>
+            </button>
             </form>
         </div>
         </div>
