@@ -42,6 +42,7 @@ export default function Create({ close }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await dispatch(createPost(postData));
+        window.location.href = '/home';
     };
 
     return (

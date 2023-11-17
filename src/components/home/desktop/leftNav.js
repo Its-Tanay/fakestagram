@@ -9,25 +9,26 @@ import like from '../../../assets/like.png'
 import create from '../../../assets/addPost.png'
 import settings from '../../../assets/setting.png'
 import logOut from '../../../assets/logout.png'
+import { Link } from 'react-router-dom'
 
-export default function LeftNav({open, logOutUser   }) {
+export default function LeftNav({open, logOutUser, currentUser}) {
     return(
         <div className='hidden fixed top-0 left-0 z-10 w-[16vw] md:flex flex-col justify-start items-center gap-[2rem] p-[2rem] pl-[0rem] h-screen border-r-[0.5px] border-black/20'>
             <div>
                 <img className='w-[7rem] h-auto' src={logoText} alt='logoText' />
             </div>
             <div className='flex flex-col justify-evenly gap-[2rem]'>
-                <NavBtns imgURL={home} text='Home' />
+                <Link to='/home'><NavBtns imgURL={home} text='Home' /></Link>
                 <NavBtns imgURL={search} text='Search' />
                 <NavBtns imgURL={reels} text='Reels' />
                 <NavBtns imgURL={dms} text='DMs' />
                 <NavBtns imgURL={like} text='Notifications' />
                 <NavBtns imgURL={create} text='Create' handleClick={open} />
-                <NavBtns imgURL={cat} text='Cat' />
+                <NavBtns imgURL={cat} text={currentUser.username} />
             </div>
             <div className='flex flex-col gap-[2rem] mt-[8rem]'>
                 <NavBtns imgURL={settings} text='Settings' />
-                <NavBtns imgURL={logOut} text='Logout' handleClick={logOutUser}/>
+                <Link to="/login"><NavBtns imgURL={logOut} text='Logout' handleClick={logOutUser}/></Link>
             </div>
         </div>
     )

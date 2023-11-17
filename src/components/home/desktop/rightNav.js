@@ -3,7 +3,7 @@ import NavProfile from './navProfiles'
 
 export default function RightNav({username, name}){
     return(
-        <div className='hidden md:flex flex-col p-[2rem] w-[30vw] gap-[2rem]'>
+        <div className='hidden md:flex flex-col p-[2rem] w-[28vw] gap-[2rem]'>
             <div>
                 <NavProfile imgURL={cat} username={username} text={name} btnText="Switch" />
             </div>

@@ -25,14 +25,14 @@ export default function Home(){
         setOpen(false);
     }
 
+    const users = useSelector((state) => state.user.users);
+
     const currentUser = useSelector((state) => state.user.currentUser);
 
     const posts = useSelector((state) => state.posts.posts);
 
     const handleLogOut = async () => {
         await dispatch(logOut());
-        window.location.href = '/login';
-        console.log(currentUser);
     }
 
     return(
@@ -43,7 +43,7 @@ export default function Home(){
                 <p className='text-lg font-semibold'>{currentUser.username}</p>
             </div>
             <div className='flex'>
-                <LeftNav open={openCreate} logOutUser={handleLogOut} />
+                <LeftNav open={openCreate} logOutUser={handleLogOut} currentUser={currentUser}/>
                 <div className='md:ml-[16vw]'>
                     <div id="stories" className='flex p-2 overflow-x-auto 480px:mx-[8rem] w-full mx-auto 480px:w-[480px]'>
                         <Story imgURL={cat} />

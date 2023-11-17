@@ -6,6 +6,7 @@ import Comment from "./comment";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addComment } from "../../redux/slices/postsSlice";
+import { Link } from "react-router-dom";
 
 export default function CommentSection() {
 
@@ -34,7 +35,8 @@ export default function CommentSection() {
     return (
         <>
             <Header />
-                <div className="flex flex-col justify-between mt-[4rem] pb-[4rem] min-h-full mx-auto w-full 480px:w-[480px] 480px:border-x-[0.5px] 480px:border-black">
+                <div className="relative flex flex-col justify-end mt-[4rem] md:mt-0 pb-[4rem] md:pb-0 min-h-full mx-auto w-full 480px:w-[480px] 480px:border-x-[0.5px] 480px:border-black">
+                <Link to="/home"><button className="absolute top-0 right-0 m-[1rem] text-2xl font-semibold">x</button></Link> 
                 <div>
                     {post?.comments?.map((comment, index) => (
                         <Comment key={index} username={comment.username} comment={comment.text} />

@@ -24,42 +24,40 @@ const userSlice = createSlice({
 
     reducers:{
         createUser: (state, action) => {
+      const newUser = action.payload;
 
-            const newUser = action.payload;
-      
-            const existingUser = state.users.find(
-              (user) => user.username === newUser.username
-            );
-      
-            if (existingUser) {
-              state.error = "*Username already exists*";
-              state.successMessage = null;
-            } else {
+      const existingUser = state.users.find(
+        (user) => user.username === newUser.username
+      );
 
-              state.users.push(newUser);
-              state.user = {
-                username: "",
-                password: "",
-                fullName: "",
-                email: "",
-              };
-              state.error = null; 
-              state.successMessage = "User registered successfully";
-            }
-          },
-          loginUser: (state, action) => {
-            const { username, password } = action.payload;
-            const loginUser = state.users.find(
-              (user) => user.username === username && user.password === password
-            );
-      
-            if (loginUser) {
-              state.currentUser = loginUser;
-              state.error = null;
-            } else {
-              state.error = "*Invalid username or password*";
-            }
-          },
+      if (existingUser) {
+        state.error = "*Username already exists*";
+        state.successMessage = null;
+      } else {
+        state.users.push(newUser);
+        state.user = {
+          username: "",
+          password: "",
+          fullName: "",
+          email: "",
+        };
+        state.error = null;
+        state.successMessage = "User registered successfully";
+      }
+    },
+    loginUser: (state, action) => {
+      const { username, password } = action.payload;
+      const loginUser = state.users.find(
+        (user) => user.username === username && user.password === password
+      );
+
+      if (loginUser) {
+        state.currentUser = loginUser;
+        state.error = null;
+      } else {
+        state.error = "*Invalid username or password*";
+      }
+    },
           toggleSavePost: (state, action) => {
             const { postId, currentUsername } = action.payload;
             const updatedCurrentUser = {

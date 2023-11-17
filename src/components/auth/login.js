@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 export default function Login () {
 
     const dispatch = useDispatch();
+    
     const {error, currentUser} = useSelector((state) => state.user);
 
     const [user, setUser] = useState({
@@ -31,7 +32,7 @@ export default function Login () {
       };
 
     return (
-        <div className="flex items-center justify-center md:mt-[5rem]">
+        <div className="flex items-center justify-center  h-full">
             <div className="flex flex-col items-center w-[390px] sm:w-[400px] md:m-[4rem] md:border-2 md:border-gray-200 md:my-[1rem] md:rounded-md">
                 <div className="w-full px-[7rem] mt-[2rem]">
                     <img src={logoText} alt="logoText" />
@@ -79,6 +80,12 @@ export default function Login () {
                 </div>
                 <div>
                     <button className="w-full px-[4rem] md:px-[5.5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg">Log in with Facebook</button>
+                </div>
+                <div className="flex flex-col items-center justify-center w-full px-[4rem] gap-[0.35rem] mt-[4rem]">
+                   <div className="flex items-center justify-center gap-2 text-gray-500">
+                        Don't have an account?
+                        <Link to="/" className="text-[#0095F6]">Sign up</Link>
+                    </div>
                 </div>
                 <div className="flex flex-col items-center justify-center w-full px-[4rem] gap-[0.35rem] mt-[4rem]">
                 </div>
