@@ -58,39 +58,39 @@ const userSlice = createSlice({
         state.error = "*Invalid username or password*";
       }
     },
-          toggleSavePost: (state, action) => {
-            const { postId, currentUsername } = action.payload;
-            const updatedCurrentUser = {
-                ...state.currentUser,
-                savedPosts: state.currentUser.savedPosts.includes(postId)
-                    ? state.currentUser.savedPosts.filter((id) => id !== postId)
-                    : [...state.currentUser.savedPosts, postId],
+    toggleSavePost: (state, action) => {
+        const { postId, currentUsername } = action.payload;
+        const updatedCurrentUser = {
+            ...state.currentUser,
+            savedPosts: state.currentUser.savedPosts.includes(postId)
+                ? state.currentUser.savedPosts.filter((id) => id !== postId)
+                : [...state.currentUser.savedPosts, postId],
             };
-            const updatedUsers = state.users.map((user) =>
-              user.username === currentUsername
-                ? {
-                    ...user,
-                    savedPosts: user.savedPosts.includes(postId)
-                      ? user.savedPosts.filter((id) => id !== postId)
-                      : [...user.savedPosts, postId],
-                  }
-                : user
+        const updatedUsers = state.users.map((user) =>
+            user.username === currentUsername
+            ? {
+                ...user,
+                savedPosts: user.savedPosts.includes(postId)
+                    ? user.savedPosts.filter((id) => id !== postId)
+                    : [...user.savedPosts, postId],
+                }
+            : user
             );
-            return {
-              ...state,
-              users: updatedUsers,
-              currentUser: updatedCurrentUser,
+        return {
+            ...state,
+            users: updatedUsers,
+            currentUser: updatedCurrentUser,
             };
-          },
-          logOut: (state) => {
-            state.currentUser = {
-              username: "",
-              password: "",
-              fullName: "",
-              email: "",
-              savedPosts: [],
+        },
+        logOut: (state) => {
+        state.currentUser = {
+            username: "",
+            password: "",
+            fullName: "",
+            email: "",
+            savedPosts: [],
             };
-          },
+        },
     }
 })
 

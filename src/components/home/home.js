@@ -74,7 +74,7 @@ export default function Home(){
                 </div>
                 <RightNav username={currentUser.username} name={currentUser.fullName} />
             </div>
-            <Toolbar />
+            <Toolbar logoutUser={handleLogOut} />
             {open && <Create close={closeCreate} />}
         </div>
     )
