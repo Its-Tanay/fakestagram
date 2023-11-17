@@ -5,9 +5,11 @@ import comment from '../../assets/comment.png'
 import share from '../../assets/share.png'
 import save from '../../assets/save.png'
 import heart from '../../assets/heart.png'
+import black from '../../assets/black.png'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleLike } from '../../redux/slices/postsSlice'
+import { toggleSavePost } from '../../redux/slices/usersSlice'
 
 export default function Post({postId, username, likes, caption, imageUrl}) {
 
@@ -15,8 +17,14 @@ export default function Post({postId, username, likes, caption, imageUrl}) {
 
     const currentUser = useSelector((state) => state.user.currentUser);
 
+    const saved = useSelector((state) => state.user.currentUser.savedPosts);
+
     const handleLike = () => {
         dispatch(toggleLike({postId: postId, currentUsername: currentUser.username}));
+    }
+
+    const handleSave = () => {
+        dispatch(toggleSavePost({postId: postId, currentUsername: currentUser.username}));
     }
 
     return (
@@ -30,7 +38,7 @@ export default function Post({postId, username, likes, caption, imageUrl}) {
             </div>
             <div className='flex justify-between gap-4 px-4 py-[0.8rem] items-center'>
                 <div className='flex gap-4'>
-                    {likes.includes(currentUser.username) ? (
+                    {likes?.includes(currentUser.username) ? (
                         <img onClick={handleLike} className='w-[1.8rem] h-auto' src={heart} alt='like' />
                     ) : (
                         <img onClick={handleLike} className='w-[1.8rem] h-auto' src={like} alt='like' />
@@ -38,7 +46,11 @@ export default function Post({postId, username, likes, caption, imageUrl}) {
                 <Link to={`/home/${postId}`}><img className='w-[1.8rem] h-auto' src={comment} alt='comment' /></Link>
                     <img className='w-[1.8rem] h-auto' src={share} alt='share' />
                 </div>
-                <img className='w-[1.8rem] h-auto ml-[12rem]' src={save} alt='save' />
+                {saved?.includes(postId) ? (
+                    <img onClick={handleSave} className='w-[1.8rem] h-auto' src={black} alt='save' />
+                ) : (
+                    <img onClick={handleSave} className='w-[1.8rem] h-auto' src={save} alt='save' />
+                )}
             </div>
             <div className='flex justify-start gap-4 px-4 items-center'>
                 <p className='text-lg font-semibold'>{likes.length} likes</p>

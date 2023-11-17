@@ -36,7 +36,7 @@ export default function Create({ close }) {
     const postData = {
         ...formData,
         username: currentUser.username,
-        likes: 0,
+        likes: [],
     };
 
     const handleSubmit = async (e) => {
@@ -51,7 +51,7 @@ export default function Create({ close }) {
             <button onClick={close} className="absolute top-0 right-0 m-[1rem] text-2xl font-semibold">x</button>
             <form onSubmit={handleSubmit} className="flex flex-col gap-[2rem] items-center justify-evenly px-[5rem] py-[2rem] w-full mt-[1rem] md:px-[2.5rem]">
                 <h1 className="text-2xl font-semibold">Add a Post</h1>
-                <button onClick={() => ref.current.click()} className="w-full px-[4rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg">
+                <button onClick={() => ref.current.click()} type='button' className="w-full px-[4rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg">
                     Upload Image
                 </button>
                 {formData.imageUrl && <p className="text-sm text-gray-500">{formData.imageUrl.name}</p>}

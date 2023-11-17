@@ -55,7 +55,7 @@ export default function Login () {
                     <div className="flex flex-col gap-4 mt-[0.8rem]">
                         <p className="text-xs text-center text-gray-500 w-full">People who use our service may have uploaded your contact information to Instagram. <span className="text-blue-800">Learn more</span></p>
                     </div>
-                {currentUser ? (
+                {currentUser.username !== "" ? (
                     <Link to="/home">
                     <button
                         className="w-full px-[5rem] py-[.5rem] mt-[1rem] text-white text-sm font-semibold bg-[#0095F6] rounded-lg"

@@ -9,13 +9,15 @@ const userSlice = createSlice({
             password: "",
             fullName: "",
             email: "",
+            savedPosts: [],
         },
         error: null,
         currentUser: {
-            username: "Tanay",
-            password: "123",
-            fullName: "Tanay",
-            email: "tanaytiw19@gmail.com",
+            username: "",
+            password: "",
+            fullName: "",
+            email: "",
+            savedPosts: [],
         },
         successMessage: null,
     },
@@ -58,8 +60,41 @@ const userSlice = createSlice({
               state.error = "*Invalid username or password*";
             }
           },
+          toggleSavePost: (state, action) => {
+            const { postId, currentUsername } = action.payload;
+            const updatedCurrentUser = {
+                ...state.currentUser,
+                savedPosts: state.currentUser.savedPosts.includes(postId)
+                    ? state.currentUser.savedPosts.filter((id) => id !== postId)
+                    : [...state.currentUser.savedPosts, postId],
+            };
+            const updatedUsers = state.users.map((user) =>
+              user.username === currentUsername
+                ? {
+                    ...user,
+                    savedPosts: user.savedPosts.includes(postId)
+                      ? user.savedPosts.filter((id) => id !== postId)
+                      : [...user.savedPosts, postId],
+                  }
+                : user
+            );
+            return {
+              ...state,
+              users: updatedUsers,
+              currentUser: updatedCurrentUser,
+            };
+          },
+          logOut: (state) => {
+            state.currentUser = {
+              username: "",
+              password: "",
+              fullName: "",
+              email: "",
+              savedPosts: [],
+            };
+          },
     }
 })
 
-export const { createUser, loginUser } = userSlice.actions;
+export const { createUser, loginUser, toggleSavePost, logOut } = userSlice.actions;
 export default userSlice.reducer;
